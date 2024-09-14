@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 
-const StudentView = () => {
+const StudentView = ({ submitRequest }) => {
   const [document, setDocument] = useState('');
 
   const handleSubmit = () => {
-    console.log('Student submitted document:', document);
-    // Add logic to send request for verification
+    submitRequest(document);
+    setDocument(''); // Clear the document input field
   };
 
   return (

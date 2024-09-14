@@ -1,11 +1,6 @@
 import React from 'react';
 
-const GovernmentOfficerView = () => {
-  const handleVerify = (requestId) => {
-    console.log('Verified document for request ID:', requestId);
-    // Add logic to verify document
-  };
-
+const GovernmentOfficerView = ({ requests, verifyRequest }) => {
   return (
     <div>
       <h3>Government Officer View: Verify Documents</h3>
@@ -18,13 +13,15 @@ const GovernmentOfficerView = () => {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>0x123456789...abc</td>
-            <td>Document Link</td>
-            <td>
-              <button onClick={() => handleVerify(1)}>Verify</button>
-            </td>
-          </tr>
+          {requests.map((request, index) => (
+            <tr key={index}>
+              <td>{request.walletAddress}</td>
+              <td>{request.document}</td>
+              <td>
+                <button onClick={() => verifyRequest(index)}>Verify</button>
+              </td>
+            </tr>
+          ))}
         </tbody>
       </table>
     </div>
