@@ -1,11 +1,6 @@
 import React from 'react';
 
-const FinancerView = () => {
-  const handleReleaseFunds = (requestId) => {
-    console.log('Funds released for request ID:', requestId);
-    // Add logic to release funds
-  };
-
+const FinancerView = ({ requests, sendTokens }) => {
   return (
     <div>
       <h3>Financer View: Release Funds</h3>
@@ -18,13 +13,15 @@ const FinancerView = () => {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>0x123456789...abc</td>
-            <td>Verified Document Link</td>
-            <td>
-              <button onClick={() => handleReleaseFunds(1)}>Release 0.1 ETH</button>
-            </td>
-          </tr>
+          {requests.map((request, index) => (
+            <tr key={index}>
+              <td>{request.walletAddress}</td>
+              <td>{request.document}</td>
+              <td>
+                <button onClick={() => sendTokens(index)}>Release 0.1 ETH</button>
+              </td>
+            </tr>
+          ))}
         </tbody>
       </table>
     </div>
