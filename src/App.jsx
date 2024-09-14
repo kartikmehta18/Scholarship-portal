@@ -243,19 +243,19 @@ const App = () => {
 
   // Function to connect to MetaMask wallet
   const connectWallet = async () => {
-
-    
-    if (typeof window.ethereum !== 'undefined') {
+    if (window.ethereum) {
       try {
+        // Create a new provider connected to MetaMask
         const provider = new ethers.providers.Web3Provider(window.ethereum);
-        console.log('Requesting wallet connection...');
+        // Request the user to connect their wallet
         await window.ethereum.request({ method: 'eth_requestAccounts' });
+  
+        // Get the signer (the connected wallet)
         const signer = provider.getSigner();
         const address = await signer.getAddress();
-        console.log('Connected wallet address:', address); // Log the wallet address
-        setWalletAddress(address);
-
+        console.log('Connected wallet address:', address);
         
+        setWalletAddress(address);
   
         // Check the role based on the wallet address
         if (address === governmentAddress) {
@@ -269,7 +269,7 @@ const App = () => {
         console.error('Error connecting to MetaMask:', error);
       }
     } else {
-      alert('MetaMask is not installed. Please install MetaMask and try again.');
+      console.error('MetaMask is not installed. Please install MetaMask and try again.');
     }
   };
 
