@@ -18,7 +18,7 @@ const FinancerView = ({ requests, sendTokens }) => {
               <td>{request.walletAddress}</td>
               <td>{request.document}</td>
               <td>
-                <button onClick={() => sendTokens(index)}>Release 0.1 ETH</button>
+                <button onClick={() => sendTokens(index)}>Release Funds</button>
               </td>
             </tr>
           ))}
