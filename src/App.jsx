@@ -85,7 +85,6 @@ const App = () => {
       });
 
       await tx.wait();
-      console.log(`Tokens sent to ${request.walletAddress}`);
 
       // Remove the verified request after tokens are sent
       setVerifiedRequests(verifiedRequests.filter((_, i) => i !== index));
@@ -171,11 +170,16 @@ const App = () => {
           </>
         )}
 
+
+       
+
+
         {/* Button to toggle Card component */}
 
         {/* Conditionally render the Card component */}
         {/* {showCard && */}
          {/* } */}
+
       </div>
     </>
   );
