@@ -8,6 +8,7 @@ import GovernmentOfficerView from './components/GovernmentOfficerView';
 import FinancerView from './components/FinancerView';
 import { ExampleNavbarOne } from './components/Navbar'; // Assuming you have this Navbar component
 import Card from './components/Card';
+import Hero from './components/Hero';
 
 
 const App = () => {
@@ -98,63 +99,78 @@ const App = () => {
 
   return (
     <>
-    <div>
-      {/* Navbar */}
-      <ExampleNavbarOne />
+      <div>
+        {/* Navbar */}
+        <ExampleNavbarOne />
 
-      {/* MetaMask Wallet Connect */}
-      {!walletAddress ? (
-        <button className="btn p-2 border rounded-md mr-72 text-white absolute right-4 top-5"
-        
-        onClick={connectWallet}
-        
-        >
-        <svg
-          class="sparkle"
-          id="Layer_1"
-          data-name="Layer 1"
-          viewBox="0 0 24 24"
-          fill="#FFFFFF"
-          width="24"
-          height="24"
-        >
-          <path
-            clip-rule="evenodd"
-            d="M12 14a3 3 0 0 1 3-3h4a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2h-4a3 3 0 0 1-3-3Zm3-1a1 1 0 1 0 0 2h4v-2h-4Z"
-            fill-rule="evenodd"
-          ></path>
-          <path
-            clip-rule="evenodd"
-            d="M12.293 3.293a1 1 0 0 1 1.414 0L16.414 6h-2.828l-1.293-1.293a1 1 0 0 1 0-1.414ZM12.414 6 9.707 3.293a1 1 0 0 0-1.414 0L5.586 6h6.828ZM4.586 7l-.056.055A2 2 0 0 0 3 9v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2h-4a5 5 0 0 1 0-10h4a2 2 0 0 0-1.53-1.945L17.414 7H4.586Z"
-            fill-rule="evenodd"
-          ></path>
-        </svg>
-      
-        <span class="text">Connect</span>
-      </button>
-      
-       
-      ) : (
-        <div className='  flex flex-col items-center mt-8 border-2 border-black ml-80 rounded-md mr-80 text-black '>
-                <p className=' mt-7  font-bold'>Role: {role}</p>
-          <p className='bg-black text-white p-2 rounded-md  shadow-md mb-6 hover:shadow-md shadow-blue-600 cursor-pointer  mt-4'>Connected wallet: {walletAddress}</p>
-    
-          <button 
-            className="bg-red-500 p-2 border rounded-md text-white"
-            onClick={() => setWalletAddress(null)}
+        {/* MetaMask Wallet Connect */}
+        {!walletAddress ? (
+          <button className="btn p-2 border rounded-md mr-72 text-white absolute right-4 top-5"
+
+            onClick={connectWallet}
+
           >
-           🚫 Disconnect
+            <svg
+              class="sparkle"
+              id="Layer_1"
+              data-name="Layer 1"
+              viewBox="0 0 24 24"
+              fill="#FFFFFF"
+              width="24"
+              height="24"
+            >
+              <path
+                clip-rule="evenodd"
+                d="M12 14a3 3 0 0 1 3-3h4a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2h-4a3 3 0 0 1-3-3Zm3-1a1 1 0 1 0 0 2h4v-2h-4Z"
+                fill-rule="evenodd"
+              ></path>
+              <path
+                clip-rule="evenodd"
+                d="M12.293 3.293a1 1 0 0 1 1.414 0L16.414 6h-2.828l-1.293-1.293a1 1 0 0 1 0-1.414ZM12.414 6 9.707 3.293a1 1 0 0 0-1.414 0L5.586 6h6.828ZM4.586 7l-.056.055A2 2 0 0 0 3 9v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2h-4a5 5 0 0 1 0-10h4a2 2 0 0 0-1.53-1.945L17.414 7H4.586Z"
+                fill-rule="evenodd"
+              ></path>
+            </svg>
+
+            <span class="text">Connect</span>
           </button>
 
-          {/* Role-Based Views */}
-          {role === 'student' && <StudentView submitRequest={submitRequest} className='text-black'/>}
-          {role === 'government' && <GovernmentOfficerView requests={studentRequests} verifyRequest={verifyRequest} className='text-black' />}
-          {role === 'financer' && <FinancerView requests={verifiedRequests} sendTokens={sendTokens} className='text-black'/>}
+
+        ) : (
+          <button
+            className="bg-red-500 p-2 border rounded-md text-white mr-7 absolute right-4 top-5"
+            onClick={() => setWalletAddress(null)}
+          >
+            🚫 Disconnect
+          </button>
+
+
+
+        )}
+
+
+        
+
+        {walletAddress ? 
+        <div className='grid grid-cols-1 p-4 gap-10 items-center mt-8 border-2 border-black rounded-md mx-10 md:grid-cols-2 text-black '>
+
+          <div>
+            <p className=' mt-7 font-bold'>Role: {role}</p>
+            <p className='bg-black text-white p-2 rounded-md  shadow-md mb-6 hover:shadow-md shadow-blue-600 cursor-pointer  mt-4'>Connected wallet: {walletAddress}</p>
+          </div>
+
+          <div>
+            {role === 'student' && <StudentView submitRequest={submitRequest} className='text-black' />}
+            {role === 'government' && <GovernmentOfficerView requests={studentRequests} verifyRequest={verifyRequest} className='text-black' />}
+            {role === 'financer' && <FinancerView requests={verifiedRequests} sendTokens={sendTokens} className='text-black' />}
+          </div>
         </div>
-      )}
-   
-    </div>
-    {/* <Card /> */}
+       
+       : 
+       <Hero />
+      
+      }
+
+      </div>
     </>
   );
 };

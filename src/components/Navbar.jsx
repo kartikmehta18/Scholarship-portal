@@ -33,8 +33,8 @@ export function ExampleNavbarOne() {
         <div className="inline-flex items-center space-x-2">
           <span>
             <svg
-              width="30"
-              height="30"
+              width="50"
+              height="50"
               viewBox="0 0 50 56"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
@@ -85,7 +85,7 @@ export function ExampleNavbarOne() {
                         />
                       </svg>
                     </span>
-                    <span className="font-bold">Scollarship</span>
+                    <span className="font-bold">Scholarship</span>  
                   </div>
                   <div className="-mr-2">
                     <button

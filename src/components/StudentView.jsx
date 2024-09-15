@@ -5,7 +5,7 @@ const StudentView = ({ submitRequest }) => {
 
   const handleSubmit = () => {
     submitRequest(document);
-    setDocument(''); // Clear the document input field
+    setDocument('');
   };
 
   return (
