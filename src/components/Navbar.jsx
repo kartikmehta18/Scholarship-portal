@@ -45,7 +45,7 @@ export function ExampleNavbarOne() {
               />
             </svg>
           </span>
-          <span className="font-bold text-black"></span>
+          <span className="font-bold text-black text-2xl">Pull Stackers</span>  
         </div>
         <div className="hidden lg:block">
           <ul className="inline-flex space-x-8">

@@ -1,6 +1,3 @@
-
-
-
 import React, { useState, useEffect } from 'react';
 import { ethers } from 'ethers';
 import StudentView from './components/StudentView';
@@ -9,7 +6,6 @@ import FinancerView from './components/FinancerView';
 import { ExampleNavbarOne } from './components/Navbar'; // Assuming you have this Navbar component
 import Card from './components/Card';
 import Hero from './components/Hero';
-
 
 const App = () => {
   const [walletAddress, setWalletAddress] = useState(null);
@@ -22,6 +18,7 @@ const App = () => {
     const savedVerified = localStorage.getItem('verifiedRequests');
     return savedVerified ? JSON.parse(savedVerified) : [];
   });
+  const [showCard, setShowCard] = useState(false); // To control Card visibility
   const governmentAddress = '0xDDc8eCFb84E38649576f4BeF06b770D5B011928E';
   const financerAddress = '0xdD2FD4581271e230360230F9337D5c0430Bf44C0';
 
@@ -88,7 +85,6 @@ const App = () => {
       });
 
       await tx.wait();
-      console.log(`Tokens sent to ${request.walletAddress}`);
 
       // Remove the verified request after tokens are sent
       setVerifiedRequests(verifiedRequests.filter((_, i) => i !== index));
@@ -99,7 +95,7 @@ const App = () => {
 
   return (
     <>
-      <div>
+      <div className='flex justify-center items-center flex-col'>
         {/* Navbar */}
         <ExampleNavbarOne />
 
@@ -134,7 +130,6 @@ const App = () => {
             <span class="text">Connect</span>
           </button>
 
-
         ) : (
           <button
             className="bg-red-500 p-2 border rounded-md text-white mr-7 absolute right-4 top-5"
@@ -142,34 +137,40 @@ const App = () => {
           >
             🚫 Disconnect
           </button>
-
-
-
         )}
 
+        {walletAddress ? (
+          <div className="grid grid-cols-1 p-4 gap-10 items-center mt-8 border-2 border-black rounded-md mx-10 md:grid-cols-2 text-black">
+            <div>
+              <p className="mt-7 font-bold">Role: {role}</p>
+              <p className="bg-black text-white p-2 rounded-md shadow-md mb-6 hover:shadow-md shadow-blue-600 cursor-pointer mt-4">
+                Connected wallet: {walletAddress}
+              </p>
+            </div>
 
-        
-
-        {walletAddress ? 
-        <div className='grid grid-cols-1 p-4 gap-10 items-center mt-8 border-2 border-black rounded-md mx-10 md:grid-cols-2 text-black '>
-
-          <div>
-            <p className=' mt-7 font-bold'>Role: {role}</p>
-            <p className='bg-black text-white p-2 rounded-md  shadow-md mb-6 hover:shadow-md shadow-blue-600 cursor-pointer  mt-4'>Connected wallet: {walletAddress}</p>
+            <div>
+              {role === 'student' && <StudentView submitRequest={submitRequest} className="text-black" />}
+              {role === 'government' && (
+                <GovernmentOfficerView
+                  requests={studentRequests}
+                  verifyRequest={verifyRequest}
+                  className="text-black"
+                />
+              )}
+              {role === 'financer' && <FinancerView requests={verifiedRequests} sendTokens={sendTokens} className="text-black" />}
+            </div>
           </div>
-
-          <div>
-            {role === 'student' && <StudentView submitRequest={submitRequest} className='text-black' />}
-            {role === 'government' && <GovernmentOfficerView requests={studentRequests} verifyRequest={verifyRequest} className='text-black' />}
-            {role === 'financer' && <FinancerView requests={verifiedRequests} sendTokens={sendTokens} className='text-black' />}
-          </div>
+        ) : (
+          <>
+          <Hero />
+        <div className="p-10 w-[1000px] ">
+          
+         <Card />
         </div>
-       
-       : 
-       <Hero />
-      
-      }
+          </>
+        )}
 
+       
       </div>
     </>
   );
