@@ -12,7 +12,7 @@ const FinancerRelease = ({ contractAddress, studentAddress }) => {
 
   return (
     <div>
-      <button onClick={handleRelease}>Release Funds</button>
+      <button onClick={handleRelease} className='text-black'>Release Funds</button>
     </div>
   );
 };

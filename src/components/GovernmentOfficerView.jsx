@@ -3,13 +3,13 @@ import React from 'react';
 const GovernmentOfficerView = ({ requests, verifyRequest }) => {
   return (
     <div>
-      <h3>Government Officer View: Verify Documents</h3>
+      <h3 className='text-black'>Government Officer View: Verify Documents</h3>
       <table>
         <thead>
           <tr>
-            <th>Student Wallet</th>
-            <th>Document</th>
-            <th>Action</th>
+            <th className='text-black'>Student Wallet</th>
+            <th className='text-black'>Document</th>
+            <th className='text-black'>Action</th>
           </tr>
         </thead>
         <tbody>

@@ -12,7 +12,7 @@ const GovernmentVerification = ({ contractAddress, studentAddress }) => {
 
   return (
     <div>
-      <button onClick={handleVerify}>Verify Document</button>
+      <button className='text-black' onClick={handleVerify}>Verify Document</button>
     </div>
   );
 };

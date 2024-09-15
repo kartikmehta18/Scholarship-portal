@@ -3,13 +3,13 @@ import React from 'react';
 const FinancerView = ({ requests, sendTokens }) => {
   return (
     <div>
-      <h3>Financer View: Release Funds</h3>
+      <h3 className='text-black'>Financer View: Release Funds</h3>
       <table>
         <thead>
           <tr>
-            <th>Student Wallet</th>
-            <th>Verified Document</th>
-            <th>Action</th>
+            <th className='text-black'>Student Wallet</th>
+            <th className='text-black' >Verified Document</th>
+            <th className='text-black' >Action</th>
           </tr>
         </thead>
         <tbody>
@@ -18,7 +18,7 @@ const FinancerView = ({ requests, sendTokens }) => {
               <td>{request.walletAddress}</td>
               <td>{request.document}</td>
               <td>
-                <button onClick={() => sendTokens(index)}>Release Funds</button>
+                <button  className='text-black' onClick={() => sendTokens(index)}>Release Funds</button>
               </td>
             </tr>
           ))}

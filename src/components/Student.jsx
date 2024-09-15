@@ -12,7 +12,7 @@ const Student = () => {
 
   return (
     <div>
-      <h2>Student: Upload Document</h2>
+      <h2 className='text-black' >Student: Upload Document</h2>
       <form onSubmit={handleSubmit}>
         <input
           type="text"
@@ -20,7 +20,7 @@ const Student = () => {
           value={docHash}
           onChange={(e) => setDocHash(e.target.value)}
         />
-        <button type="submit">Request Verification</button>
+        <button type="submit" className='text-black'>Request Verification</button>
       </form>
     </div>
   );
