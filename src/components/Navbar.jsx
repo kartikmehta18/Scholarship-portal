@@ -93,7 +93,7 @@ export function ExampleNavbarOne() {
                       onClick={toggleMenu}
                       className="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
                     >
-                      <span className="sr-only">Close menu</span>
+                      <span className="sr-only text-black'">Close menu</span>
                       <X className="h-6 w-6" aria-hidden="true" />
                     </button>
                   </div>

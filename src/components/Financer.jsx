@@ -18,13 +18,13 @@ const Financer = () => {
 
   return (
     <div>
-      <h2>Financer: Release Funds</h2>
+      <h2 className='text-black'>Financer: Release Funds</h2>
       <table>
         <thead>
           <tr>
-            <th>Student Address</th>
-            <th>Document Hash</th>
-            <th>Action</th>
+            <th className='text-black'>Student Address</th>
+            <th className='text-black'>Document Hash</th>
+            <th className='text-black'>Action</th>
           </tr>
         </thead>
         <tbody>
@@ -33,7 +33,7 @@ const Financer = () => {
               <td>{request.studentAddress}</td>
               <td>{request.docHash}</td>
               <td>
-                <button onClick={() => handleRelease(request.studentAddress)}>
+                <button  className='text-black' onClick={() => handleRelease(request.studentAddress)}>
                   Release Funds
                 </button>
               </td>

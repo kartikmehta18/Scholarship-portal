@@ -18,13 +18,13 @@ const GovernmentOfficer = () => {
 
   return (
     <div>
-      <h2>Government Officer: Verify Documents</h2>
+      <h2 className='text-black'>Government Officer: Verify Documents</h2>
       <table>
         <thead>
           <tr>
-            <th>Student Address</th>
-            <th>Document Hash</th>
-            <th>Action</th>
+            <th className='text-black'>Student Address</th>
+            <th className='text-black'>Document Hash</th>
+            <th className='text-black'>Action</th>
           </tr>
         </thead>
         <tbody>

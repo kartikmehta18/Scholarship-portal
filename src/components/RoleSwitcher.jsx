@@ -29,10 +29,10 @@ const RoleSwitcher = () => {
   }, []);
 
   return (
-    <div>
-      {role === 'student' && <Student />}
-      {role === 'government' && <GovernmentOfficer />}
-      {role === 'financer' && <Financer />}
+    <div >
+      {role === 'student' && <Student className='text-black' />}
+      {role === 'government' && <GovernmentOfficer className='text-black' />}
+      {role === 'financer' && <Financer className='text-black'/>}
     </div>
   );
 };
