@@ -135,9 +135,10 @@ const App = () => {
       
        
       ) : (
-        <div className='  flex flex-col items-center mt-8 border-2 border-black ml-80 rounded-md mr-80 text-black'>
-          <p className='bg-black text-white p-2 rounded-md  shadow-md  hover:shadow-md shadow-blue-600 cursor-pointer  mt-4'>Connected wallet: {walletAddress}</p>
-          <p className=''>Role: {role}</p>
+        <div className='  flex flex-col items-center mt-8 border-2 border-black ml-80 rounded-md mr-80 text-black '>
+                <p className=' mt-7  font-bold'>Role: {role}</p>
+          <p className='bg-black text-white p-2 rounded-md  shadow-md mb-6 hover:shadow-md shadow-blue-600 cursor-pointer  mt-4'>Connected wallet: {walletAddress}</p>
+    
           <button 
             className="bg-red-500 p-2 border rounded-md text-white"
             onClick={() => setWalletAddress(null)}
