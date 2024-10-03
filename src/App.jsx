@@ -7,6 +7,7 @@ import { ExampleNavbarOne } from './components/Navbar'; // Assuming you have thi
 import Card from './components/Card';
 import Hero from './components/Hero';
 
+
 const App = () => {
   const [walletAddress, setWalletAddress] = useState(null);
   const [role, setRole] = useState('student'); // Default role is student
@@ -149,7 +150,7 @@ const App = () => {
             </div>
 
             <div>
-              {role === 'student' && <StudentView submitRequest={submitRequest} className="text-black" />}
+              {role === 'student' && <StudentView  submitRequest={submitRequest} className="text-black" />}
               {role === 'government' && (
                 <GovernmentOfficerView
                   requests={studentRequests}
@@ -163,7 +164,7 @@ const App = () => {
         ) : (
           <>
           <Hero />
-        <div className="p-10 w-[1000px] ">
+        <div className="p-10 md:w-[1000px] ">
           
          <Card />
         </div>

@@ -52,7 +52,7 @@ const Card = () => {
 
   return (
     <div className="p-5 border-4 border-black rounded-xl">
-      <h1 className="text-2xl font-bold text-gray-800 mb-4">Find Scholarships in your State</h1>
+      <h1 className="text-2xl font-bold text-gray-800 mb-2">Find Scholarships in your State <span className='text-sm text-gray-500'>(Built using Lemmebuild)</span></h1>
 
       <form onSubmit={handleSubmit} className="mb-5">
         <div className="mb-4">
@@ -75,7 +75,7 @@ const Card = () => {
       </form>
 
       {/* Display scheme cards */}
-      <div className="scheme-list text-black grid grid-cols-3 gap-4 ">
+      <div className="scheme-list text-black grid grid-cols-1 md:grid-cols-3 gap-4 ">
         {schemes.length > 0 ? (
           schemes.map((scheme, index) => (
             <div
