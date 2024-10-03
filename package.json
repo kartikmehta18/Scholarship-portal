@@ -12,7 +12,10 @@
   "dependencies": {
     "@taquito/beacon-wallet": "^20.0.1",
     "@taquito/taquito": "^20.0.1",
+    "axios": "^1.7.7",
+    "buffer": "^6.0.3",
     "ethers": "^5.5.0",
+    "ipfs-http-client": "^60.0.1",
     "lucide-react": "^0.441.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",

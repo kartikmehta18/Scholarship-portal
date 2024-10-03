@@ -1,6 +1,6 @@
 import React from 'react';
 
-const FinancerView = ({ requests, sendTokens }) => {
+const   FinancerView = ({ requests, sendTokens }) => {
   return (
 
     <>  
@@ -24,7 +24,7 @@ const FinancerView = ({ requests, sendTokens }) => {
           {requests.map((request, index) => (
               <tr key={index}>
                 <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">{request.walletAddress}</td>
-                <td className="whitespace-nowrap px-4 py-2 text-gray-900">{request.document}</td>
+                <td className="whitespace-nowrap px-4 py-2 text-gray-900"><img src={request.document} height={300} width={300} /> </td>
                 <td className="whitespace-nowrap px-4 py-2">
                 <button
                   onClick={() => sendTokens(index)}
